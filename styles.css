@@ -320,58 +320,111 @@ body {
 }
 
 /* Experience Section */
+.experience {
+  padding: var(--section-padding);
+  background: #f9f9f9;
+}
+
 .experience-center {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 3rem;
+  position: relative;
 }
 
 .timeline {
   position: relative;
-  max-width: 1000px;
-  margin: 0 auto;
+  padding: 2rem 0;
 }
 
 .timeline::before {
   content: '';
   position: absolute;
-  width: 4px;
-  background: var(--primary-color);
-  top: 0;
-  bottom: 0;
   left: 50%;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--primary-color);
   transform: translateX(-50%);
+  z-index: 0;
 }
 
 .timeline-item {
-  width: 50%;
+  position: relative;
   padding: 2rem;
-}
-
-.timeline-item:nth-child(odd) {
-  left: 0;
-}
-
-.timeline-item:nth-child(even) {
-  right: 0;
-}
-
-.timeline-content {
   background: #fff;
-  padding: 2rem;
   border-radius: 10px;
   box-shadow: var(--card-shadow);
-  position: relative;
+  margin-bottom: 2rem;
+  width: 100%;
+  transition: transform 0.3s ease;
+  transform: translateX(0);
 }
 
-.timeline-content::before {
+.timeline-item::before {
   content: '';
   position: absolute;
+  left: 50%;
+  top: 0;
   width: 20px;
   height: 20px;
   background: var(--primary-color);
   border-radius: 50%;
-  top: 20px;
-  left: -10px;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.timeline-content {
+  padding: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Add smooth animations for timeline items */
+.timeline-item:nth-child(odd) {
+  animation: slideInLeft 0.5s ease-out;
+}
+
+.timeline-item:nth-child(even) {
+  animation: slideInRight 0.5s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Make experience section responsive */
+@media (max-width: 768px) {
+  .timeline {
+    padding: 1rem 0;
+  }
+
+  .timeline-item {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .timeline-content {
+    padding: 1rem;
+  }
 }
 
 /* Projects Section */
