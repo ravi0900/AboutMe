@@ -4,7 +4,7 @@
   --text-color: #333;
   --light-text: #666;
   --background: #fff;
-  --section-padding: 8rem 0;
+  --section-padding: 4rem 0;
   --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -35,6 +35,7 @@ body {
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: #fff;
   overflow: hidden;
+  padding: 0;
 }
 
 .hero {
@@ -47,12 +48,12 @@ body {
 }
 
 .hero h1 {
-  font-size: 4rem;
+  font-size: 3.5rem;
   margin-bottom: 1rem;
 }
 
 .hero h3 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-bottom: 0.5rem;
 }
 
@@ -267,6 +268,10 @@ body {
   padding: var(--section-padding);
 }
 
+.section:not(:first-child) {
+  margin-top: -2rem;
+}
+
 .title h1 {
   text-align: center;
   font-size: 2.5rem;
@@ -289,8 +294,18 @@ body {
 .about-center {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 2rem;
   align-items: center;
+}
+
+.about-center .left {
+  place-self: center;
+}
+
+.about-center .right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .about-center img {
@@ -328,13 +343,12 @@ body {
 .experience-center {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 1.5rem;
   position: relative;
 }
 
 .timeline {
-  position: relative;
-  padding: 2rem 0;
+  padding: 1.5rem 0;
 }
 
 .timeline::before {
@@ -351,11 +365,11 @@ body {
 
 .timeline-item {
   position: relative;
-  padding: 2rem;
+  padding: 1.5rem;
   background: #fff;
   border-radius: 10px;
   box-shadow: var(--card-shadow);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   width: 100%;
   transition: transform 0.3s ease;
   transform: translateX(0);
@@ -418,8 +432,8 @@ body {
   }
 
   .timeline-item {
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
   }
 
   .timeline-content {
@@ -428,10 +442,14 @@ body {
 }
 
 /* Projects Section */
+.projects {
+  padding: var(--section-padding);
+}
+
 .projects-center {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .project-card {
@@ -457,10 +475,20 @@ body {
 }
 
 /* Skills Section */
+.skills {
+  padding: var(--section-padding);
+}
+
+.skills-center {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .skill-category {
@@ -508,10 +536,20 @@ body {
 }
 
 /* Contact Section */
+.contact {
+  padding: var(--section-padding);
+}
+
+.contact-center {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .contact-info {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
 }
 
 .contact-item {
@@ -531,7 +569,7 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
   .hero h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .about-center {
@@ -559,15 +597,31 @@ body {
   .timeline-content::before {
     left: 15px;
   }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .section:not(:first-child) {
+    margin-top: -1.5rem;
+  }
 }
 
 @media (max-width: 480px) {
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .key-highlights {
     grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 2.5rem 0;
+  }
+
+  .section:not(:first-child) {
+    margin-top: -1rem;
   }
 }
 
