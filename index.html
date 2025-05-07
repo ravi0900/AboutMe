@@ -277,5 +277,12 @@
       });
     });
   </script>
+  <script>
+    // Add loaded class to header when images are loaded
+    window.addEventListener('load', () => {
+      const header = document.querySelector('.header');
+      header.classList.add('loaded');
+    });
+  </script>
 </body>
 </html>
