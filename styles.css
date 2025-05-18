@@ -108,7 +108,7 @@ body {
 
 .icons {
   position:absolute;
-  bottom: 12rem;
+  bottom: 8rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
