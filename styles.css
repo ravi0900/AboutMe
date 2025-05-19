@@ -109,12 +109,12 @@ body {
 
 .icons {
   position:absolute;
-  bottom: 12rem;
+  bottom: 13rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 2rem;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 }
 
 .icons a {
@@ -237,7 +237,7 @@ body {
   }
 
   .hero h1 {
-    font-size: 2rem;  
+    font-size: 2rem;    
   }
 
   .hero h3 {
