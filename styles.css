@@ -46,9 +46,10 @@ body {
 .hero {
   max-width: 800px;
   width: 100%;
-  padding: 0 1rem;
+  padding: 0 0.1rem;
   margin: 0 auto;
   position: relative;
+  padding-bottom: 200px;
   z-index: 1;
   opacity: 0;
   transform: translateY(20px);
@@ -108,12 +109,12 @@ body {
 
 .icons {
   position:absolute;
-  bottom: 8rem;
+  bottom: 12rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 2rem;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 
 .icons a {
@@ -236,7 +237,7 @@ body {
   }
 
   .hero h1 {
-    font-size: 2rem;
+    font-size: 2rem;  
   }
 
   .hero h3 {
@@ -264,7 +265,7 @@ body {
     margin-top: 2rem;
     justify-content: center;
     gap: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   .container {
@@ -715,6 +716,7 @@ footer span {
 
   .hero {
     padding: 0 1rem;
+    padding-bottom: 150px;
   }
 
   .hero h1 {
