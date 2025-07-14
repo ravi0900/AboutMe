@@ -1,82 +1,104 @@
-AOS.init();
-
-const menu = document.querySelector(".menu");
-const navOpen = document.querySelector(".hamburger");
-const navClose = document.querySelector(".close");
-
-navOpen.addEventListener("click", () => {
-  menu.classList.add("show");
-  document.body.classList.add("show");
+// Initialize AOS (Animate On Scroll)
+AOS.init({
+  duration: 800,
+  easing: 'ease-in-out',
+  once: true
 });
 
-navClose.addEventListener("click", () => {
-  menu.classList.remove("show");
-  document.body.classList.remove("show");
-});
+document.addEventListener('DOMContentLoaded', function() {
+  // Mobile menu elements
+  const navToggle = document.querySelector(".nav-toggle");
+  const navLinks = document.querySelector(".nav-links");
+  const hamburger = document.querySelector(".hamburger");
+  const navBar = document.querySelector(".nav");
+  const navHeight = navBar.getBoundingClientRect().height;
+  
+  // Add loaded class for fade-in animations
+  const hero = document.querySelector('.hero');
+  const ctaButtons = document.querySelector('.cta-buttons');
+  const icons = document.querySelector('.icons');
+  
+  // Trigger animations after a short delay
+  setTimeout(() => {
+    if (hero) hero.classList.add('loaded');
+    if (ctaButtons) ctaButtons.classList.add('loaded');
+    if (icons) icons.classList.add('loaded');
+  }, 300);
 
-// Fixed Nav
-const navBar = document.querySelector(".nav");
-const navHeight = navBar.getBoundingClientRect().height;
-window.addEventListener("scroll", () => {
-  const scrollHeight = window.pageYOffset;
-  if (scrollHeight > navHeight) navBar.classList.add("fix-nav");
-  else navBar.classList.remove("fix-nav");
-});
+  // Toggle mobile menu
+  function toggleMenu() {
+    const isOpen = !navLinks.classList.contains('active');
+    navToggle.classList.toggle('active', isOpen);
+    navLinks.classList.toggle('active', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    navToggle.setAttribute('aria-expanded', isOpen);
+  }
 
-// Color Control
-const widget = document.querySelector('.widget');
-const colors = document.querySelectorAll('.colors span');
+  // Close menu when clicking outside
+  function closeMenuOnOutsideClick(e) {
+    if (!e.target.closest('.nav') && navLinks.classList.contains('active')) {
+      toggleMenu();
+    }
+  }
 
-widget.addEventListener('click', () => {
-  document.querySelector('.colors').classList.toggle('open');
-});
-
-colors.forEach(color => {
-  color.addEventListener('click', () => {
-    const currentColor = color.dataset.id;
-    document.documentElement.style.setProperty('--customColor', currentColor);
-  });
-});
-
-window.addEventListener('scroll', () => {
-  document.querySelector('.colors').classList.remove('open');
-});
-
-// Scroll To
-const links = document.querySelectorAll(".scroll-link");
-links.forEach(link => {
-  link.addEventListener("click", e => {
+  // Smooth scroll to section
+  function smoothScroll(e) {
     e.preventDefault();
-    const id = e.target.getAttribute("href").slice(1);
-    const element = document.getElementById(id);
-    const position = element.offsetTop - navHeight;
-    window.scrollTo({ top: position, left: 0 });
-    menu.classList.remove("show");
-    document.body.classList.remove("show");
+    const targetId = e.currentTarget.getAttribute("href");
+    const targetElement = document.querySelector(targetId);
+    
+    if (targetElement) {
+      // Close mobile menu if open
+      if (navLinks.classList.contains('active')) {
+        toggleMenu();
+      }
+      
+      const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }
+
+  // Event listeners
+  if (navToggle) {
+    navToggle.addEventListener("click", function(e) {
+      e.stopPropagation();
+      toggleMenu();
+    });
+  }
+
+  // Add smooth scroll to nav links
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener("click", smoothScroll);
   });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', closeMenuOnOutsideClick);
+
+  // Handle window resize and scroll
+  function handleResize() {
+    if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+      navLinks.classList.remove('active');
+      navToggle.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function handleScroll() {
+    const scrollHeight = window.pageYOffset;
+    if (scrollHeight > navHeight) {
+      navBar.classList.add("fixed-nav");
+    } else {
+      navBar.classList.remove("fixed-nav");
+    }
+  }
+
+  // Add event listeners
+  window.addEventListener('resize', handleResize);
+  window.addEventListener('scroll', handleScroll);
+
+  // Initial check
+  handleScroll();
 });
-
-// TypeIt Animation
-new TypeIt("#type1, #type2", {
-  speed: 120,
-  loop: true,
-  waitUntilVisible: true,
-})
-  .type("Life Long Learner", { delay: 400 })
-  .pause(500)
-  .delete(17)
-  .type("Developer", { delay: 400 })
-  .pause(500)
-  .delete(9)
-  .go();
-
-// GSAP Animations
-gsap.from(".logo", { opacity: 0, duration: 1, delay: 0.5, y: -10 });
-gsap.from(".hamburger", { opacity: 0, duration: 1, delay: 1, x: 20 });
-gsap.from(".banner", { opacity: 0, duration: 1, delay: 1.5, x: -200 });
-gsap.from(".hero h3", { opacity: 0, duration: 1, delay: 2, y: -50 });
-gsap.from(".hero h1", { opacity: 0, duration: 1, delay: 2.5, y: -45 });
-gsap.from(".hero h4", { opacity: 0, duration: 1, delay: 3, y: -30 });
-gsap.from(".hero a", { opacity: 0, duration: 1, delay: 3.5, y: 50 });
-gsap.from(".nav-item", { opacity: 0, duration: 1, delay: 1.2, y: 30, stagger: 0.2 });
-gsap.from(".icons span", { opacity: 0, duration: 1, delay: 4, x: -30, stagger: 0.2 });

@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="Raviraj Kushwaha - Software Engineer in Test and Automation Specialist" />
+  <meta name="theme-color" content="#0044FF" />
   <link rel="shortcut icon" href="./images/ironman.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.css" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="main.css" />
   <title>Raviraj Kushwaha</title>
 </head>
 <body>
@@ -19,31 +21,35 @@
           <h1><span>Raviraj</span> Kushwaha</h1>
         </div>
         <div class="nav-links">
-          <ul class="nav-list">
-            <li class="nav-item"><a href="#home" class="nav-link scroll-link">Home</a></li>
-            <li class="nav-item"><a href="#about" class="nav-link scroll-link">About</a></li>
-            <li class="nav-item"><a href="#experience" class="nav-link scroll-link">Experience</a></li>
-            <li class="nav-item"><a href="#projects" class="nav-link scroll-link">Projects</a></li>
-            <li class="nav-item"><a href="#skills" class="nav-link scroll-link">Skills</a></li>
-            <li class="nav-item"><a href="#contact" class="nav-link scroll-link">Contact</a></li>
+          <ul class="nav-list" id="main-navigation">
+            <li class="nav-item"><a href="#home" class="nav-link scroll-link" data-section="home">Home</a></li>
+            <li class="nav-item"><a href="#about" class="nav-link scroll-link" data-section="about">About</a></li>
+            <li class="nav-item"><a href="#experience" class="nav-link scroll-link" data-section="experience">Experience</a></li>
+            <li class="nav-item"><a href="#projects" class="nav-link scroll-link" data-section="projects">Projects</a></li>
+            <li class="nav-item"><a href="#skills" class="nav-link scroll-link" data-section="skills">Skills</a></li>
+            <li class="nav-item"><a href="#contact" class="nav-link scroll-link" data-section="contact">Contact</a></li>
           </ul>
         </div>
-        <div class="nav-toggle">
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-navigation">
           <div class="hamburger">
             <span></span>
             <span></span>
             <span></span>
           </div>
-        </div>
+        </button>
       </div>
     </nav>
     <div class="hero">
       <h3>Software Engineer in Test</h3>
       <h1>Raviraj Kushwaha</h1>
-      <h4>Automation & Testing Specialist</h4>
+      <h4>Mannual & Automation Testing Specialist</h4>
       <div class="cta-buttons">
-        <a href="https://github.com/ravi0900" target="_blank" class="btn primary">GitHub Profile</a>
-        <a href="https://drive.google.com/file/d/1g1vtFKKt0TdpbGpBVe77v7nqk2k1ZCBU/view?usp=sharing" target="_blank" class="btn secondary">Download Resume</a>
+        <a href="https://github.com/ravi0900" target="_blank" rel="noopener noreferrer" class="btn primary">
+          <i class="fab fa-github" aria-hidden="true"></i> GitHub Profile
+        </a>
+        <a href="https://drive.google.com/file/d/1g1vtFKKt0TdpbGpBVe77v7nqk2k1ZCBU/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn secondary">
+          <i class="fas fa-download" aria-hidden="true"></i> Download Resume
+        </a>
       </div>
     </div>
     <div class="icons">
@@ -65,14 +71,14 @@
       </div>
       <div class="right" data-aos="fade-left" data-aos-duration="2000">
         <h2>Passionate Software Engineer in Test</h2>
-        <p>I am a dedicated Software Engineer in Test with expertise in automation, testing, and development. With experience at Prashant Advait Foundation, I specialize in creating efficient automation solutions and ensuring high-quality software delivery.</p>
+        <p>I am a dedicated Software Engineer in Test with expertise in Mannual & Automation Testing, and development. With experience at Prashant Advait Foundation, I specialize in creating efficient automation test scripts, API testing, writing test cases, and ensuring high-quality software delivery. I love to explore new technologies and trends in the field of Software Engineering.</p>
         <div class="key-highlights">
           <div class="highlight">
             <span class="number">100+</span><br>
             <span class="label">Projects</span>
           </div>
           <div class="highlight">
-            <span class="number">300+</span><br>
+            <span class="number">500+</span><br>
             <span class="label">Bugs Reported</span>
           </div>
           <div class="highlight">
@@ -96,27 +102,29 @@
           <div class="timeline-content">
             <h3 class="position">Software Engineer in Test</h3>
             <h4 class="company">Prashant Advait Foundation</h4>
-            <h4 class="period">Nov 2023 - Present</h4>
+            <div class="timeline-date">Nov 2023 - Present</div>
             <ul class="responsibilities">
-              <li>Developed Python automation scripts and tools to reduce manual effort</li>
-              <li>Implemented Web UI automation using SeleniumBase framework</li>
-              <li>Created Android app automation using Robot Framework Appium</li>
-              <li>Contributed to API, Web, and deployment repositories</li>
-              <li>Automated CouchDb Database operations using couchbase SDK</li>
-              <li>Wrote Golang code for API projects</li>
+              <li>Experience with Web UI automation using SeleniumBase framework</li>
+              <li>Experience with API automation and testing using Python requests library</li>
+              <li>Written Python & Bash scripts to reduce manual effort via Automation</li>
+              <li>Explored Android app automation using Appium & Robot Framework</li>
+              <li>Automated Couchbase DB operations using couchbase SDK</li>
+              <li>Worked with Go Programming for API testing & development</li>
+              <li>Contributed to API, Web, and Deploy repositories</li>
+              <li>Explored Jenkin CI/CD, GitHub actions, Docker, K8S, AI & ML Tech for being updated with latest trends</li>
             </ul>
           </div>
         </div>
         <div class="timeline-item" data-aos="fade-left" data-aos-duration="2000">
           <div class="timeline-content">
             <h3 class="position">Manual Tester</h3>
-            <p class="company">Prashant Advait Foundation</p>
-            <p class="period">Sept 2023 - Nov 2023</p>
+            <h4 class="company">Prashant Advait Foundation</h4>
+            <div class="timeline-date">Sept 2023 - Nov 2023</div>
             <ul class="responsibilities">
               <li>Performed manual testing on Android, iOS, and Web applications</li>
-              <li>Reported over 300 bugs in development phase</li>
+              <li>Reported over 500 bugs in development phase</li>
+              <li>Used Web DevTools, ADB (Logcat), iOS Debugger for debugging and issue reporting</li>
               <li>Created comprehensive test cases for new features</li>
-              <li>Used DevTools and Logcat for debugging and issue reporting</li>
             </ul>
           </div>
         </div>
@@ -248,42 +256,6 @@
 
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/7.0.4/typeit.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"></script>
   <script src="index.js"></script>
-  <script>
-    // Mobile menu toggle
-    const hamburger = document.querySelector('.hamburger');
-    const navList = document.querySelector('.nav-list');
-    
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navList.classList.toggle('active');
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!hamburger.contains(e.target) && !navList.contains(e.target)) {
-        hamburger.classList.remove('active');
-        navList.classList.remove('active');
-      }
-    });
-
-    // Close menu when clicking on a navigation link
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navList.classList.remove('active');
-      });
-    });
-  </script>
-  <script>
-    // Add loaded class to header when images are loaded
-    window.addEventListener('load', () => {
-      const header = document.querySelector('.header');
-      header.classList.add('loaded');
-    });
-  </script>
 </body>
 </html>
