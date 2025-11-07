@@ -1,3 +1,12 @@
+// ===== THEME CONFIGURATION =====
+// Change this value to switch themes.
+// 0 = Original (Bold)
+// 1 = Light Blue (Default)
+// 2 = Cosmic Lilac (Dark)
+// 3 = Oceanic Mint (New)
+// 4 = Nature's Whisper (New)
+const THEME = 4;
+
 // Initialize AOS (Animate On Scroll)
 AOS.init({
   duration: 800,
@@ -6,6 +15,14 @@ AOS.init({
 });
 
 document.addEventListener('DOMContentLoaded', function() {
+  // Apply the selected theme
+  if (typeof THEME === 'number') {
+    document.documentElement.setAttribute('data-theme', THEME);
+    if (THEME === 4) {
+      createFloatingLeaves();
+    }
+  }
+
   // Mobile menu elements
   const navToggle = document.querySelector(".nav-toggle");
   const navLinks = document.querySelector(".nav-links");
@@ -102,3 +119,31 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initial check
   handleScroll();
 });
+
+// Function to create floating leaves for Theme 4
+function createFloatingLeaves() {
+  const header = document.querySelector('.header');
+  if (!header) return;
+
+  const container = document.createElement('div');
+  container.className = 'leaves-container';
+  header.prepend(container);
+
+  const leafCount = 15;
+  for (let i = 0; i < leafCount; i++) {
+    const leaf = document.createElement('div');
+    leaf.className = 'leaf';
+    // Randomize properties for a natural effect
+    leaf.style.left = `${Math.random() * 100}vw`;
+    leaf.style.animationDuration = `${Math.random() * 8 + 7}s`; // 7 to 15 seconds
+    leaf.style.animationDelay = `${Math.random() * 10}s`;
+    const size = `${Math.random() * 15 + 10}px`; // 10px to 25px
+    leaf.style.width = size;
+    leaf.style.height = size;
+    // Custom property for random rotation in CSS
+    leaf.style.setProperty('--rotation-start', `${Math.random() * 360 - 180}deg`);
+    leaf.style.setProperty('--rotation-end', `${Math.random() * 360 - 180}deg`);
+
+    container.appendChild(leaf);
+  }
+}

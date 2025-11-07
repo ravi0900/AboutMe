@@ -1,10 +1,20 @@
 /* ===== Base Styles ===== */
 :root {
-    --primary-color: #0044FF;
-    --secondary-color: #FF4600;
+    /* Theme 1: Light Blue (Default) */
+    --primary-color: #0052D4;
+    --secondary-color: #4364F7;
     --text-color: #333;
     --light-text: #666;
     --background: #fff;
+    --section-background: #f9f9f9;
+    --card-background: #fff;
+    --nav-background: rgba(255, 255, 255, 0.95);
+    --header-gradient: linear-gradient(-45deg, #0052D4, #4364F7, #6FB1FC);
+    --timeline-axis-color: #c6ccda;
+    --timeline-dot-color: #586371;
+    --header-text-color: #fff;
+    --border-color: #eee;
+
     --section-padding: 4rem 0;
     --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
@@ -48,10 +58,10 @@ body {
 .header {
     position: relative;
     min-height: 100vh;
-    background: linear-gradient(-45deg, var(--primary-color), #4c00ff, var(--secondary-color), #ff7b00);
+    background: var(--header-gradient);
     background-size: 400% 400%;
     animation: gradientAnimation 15s ease infinite;
-    color: #fff;
+    color: var(--header-text-color);
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -67,7 +77,7 @@ body {
     left: 0;
     right: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--nav-background);
     backdrop-filter: blur(10px);
     padding: 1rem 0;
     z-index: 1000;
@@ -199,14 +209,14 @@ body {
 }
 
 .btn.primary {
-    background: #fff;
+    background: var(--header-text-color);
     color: var(--primary-color);
 }
 
 .btn.secondary {
     background: transparent;
-    border: 2px solid #fff;
-    color: #fff;
+    border: 2px solid var(--header-text-color);
+    color: var(--header-text-color);
 }
 
 .btn:hover {
@@ -240,7 +250,7 @@ body {
 }
 
 .icons a {
-    color: #fff;
+    color: var(--header-text-color);
     transition: var(--transition);
     display: flex;
     align-items: center;
@@ -264,7 +274,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--nav-background);
     backdrop-filter: blur(10px);
     padding: 0.5rem 0;
     z-index: 1000;
@@ -391,7 +401,7 @@ body {
 .highlight {
     text-align: center;
     padding: 1.5rem;
-    background: #f8f9fa;
+    background: var(--section-background);
     border-radius: 10px;
 }
 
@@ -404,7 +414,7 @@ body {
 /* Experience Section */
 .experience {
     padding: var(--section-padding);
-    background: #f9f9f9;
+    background: var(--section-background);
 }
 
 .experience-center {
@@ -429,14 +439,14 @@ body {
     width: 3px;
     height: 100%;
     /* background: var(--primary-color); */
-    background-color: #c6ccda;
+    background-color: var(--timeline-axis-color);
     
 }
 
 .timeline-item {
     position: relative;
     padding: 1.5rem;
-    background: #fff;
+    background: var(--card-background);
     border-radius: 10px;
     box-shadow: var(--card-shadow);
     margin-bottom: 1.5rem;
@@ -451,8 +461,8 @@ body {
     height: 15px;
     border-radius: 50%;
     /* background: var(--primary-color); */
-    background-color: #586371;
-    border: 3px solid #fff;
+    background-color: var(--timeline-dot-color);
+    border: 3px solid var(--card-background);
     z-index: 1;
 }
 
@@ -472,12 +482,12 @@ body {
 
 .timeline-date {
     display: inline-block;
-    background: #f0f0f0;
+    background: var(--section-background);
     padding: 0.3rem 0.8rem;
     border-radius: 15px;
     font-size: 0.85rem;
     font-weight: 500;
-    color: #555;
+    color: var(--light-text);
     margin-bottom: 1rem;
 }
 
@@ -506,7 +516,7 @@ body {
 }
 
 .project-card {
-    background: #fff;
+    background: var(--card-background);
     border-radius: 10px;
     padding: 2rem;
     box-shadow: var(--card-shadow);
@@ -545,7 +555,7 @@ body {
 }
 
 .skill-category {
-    background: #fff;
+    background: var(--card-background);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: var(--card-shadow);
@@ -562,7 +572,7 @@ body {
 
 .skill-category ul li {
     padding: 0.5rem 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .skill-category ul li:last-child {
@@ -577,7 +587,7 @@ body {
 }
 
 .cert-card {
-    background: #fff;
+    background: var(--card-background);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: var(--card-shadow);
@@ -608,7 +618,7 @@ body {
 .contact-item {
     text-align: center;
     padding: 2rem;
-    background: #fff;
+    background: var(--card-background);
     border-radius: 10px;
     box-shadow: var(--card-shadow);
 }
@@ -722,7 +732,7 @@ footer span {
         width: 80%;
         max-width: 300px;
         height: 100vh;
-        background: #fff;   
+        background: var(--background);   
         padding: 80px 2rem 2rem;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
         transition: right 0.3s ease-in-out;
@@ -874,4 +884,225 @@ footer span {
     .section:not(:first-child) {
         margin-top: -1.5rem;
     }
+}
+
+/* ===== THEME 0: Original Bold ===== */
+[data-theme='0'] {
+    --primary-color: #0044FF;
+    --secondary-color: #FF4600;
+}
+
+[data-theme='0'] .header {
+    background: linear-gradient(-45deg, var(--primary-color), #4c00ff, var(--secondary-color), #ff7b00);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+
+/* ===== THEME 2: Cosmic Lilac ===== */
+@keyframes gradientAnimationTheme2 {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+[data-theme='2'] {
+    /* Variable Overrides */
+    --primary-color: #9B59B6;
+    --secondary-color: #3498DB;
+    --text-color: #ECF0F1;
+    --light-text: #BDC3C7;
+    --background: #2c3e50;
+    --section-background: #34495E;
+    --card-background: #46627f;
+    --nav-background: rgba(44, 62, 80, 0.85);
+    --header-gradient: linear-gradient(-45deg, #8E44AD, #E74C3C, #2980B9);
+    --timeline-axis-color: #566573;
+    --timeline-dot-color: #9B59B6;
+    --border-color: #34495E;
+    --card-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='2'] .header {
+    animation-name: gradientAnimationTheme2;
+    animation-duration: 18s;
+}
+
+/* Specific overrides for Theme 2 */
+[data-theme='2'] .logo h1 {
+    color: var(--text-color);
+}
+
+[data-theme='2'] .logo h1 span {
+    color: var(--primary-color);
+}
+
+[data-theme='2'] .nav-toggle .hamburger span {
+    background: var(--text-color);
+}
+
+[data-theme='2'] .nav-toggle.active .hamburger span {
+    background: var(--secondary-color);
+}
+
+[data-theme='2'] footer {
+    background: #1C2833;
+    color: var(--light-text);
+}
+
+[data-theme='2'] footer span {
+    color: var(--primary-color);
+}
+
+[data-theme='2'] .btn.primary {
+    background: var(--primary-color);
+    color: var(--header-text-color);
+}
+
+[data-theme='2'] .btn.secondary {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+[data-theme='2'] .btn.secondary:hover {
+    background: var(--primary-color);
+    color: var(--header-text-color);
+}
+
+/* ===== THEME 3: Oceanic Mint ===== */
+@keyframes gradientAnimationTheme3 {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes buttonBreathe {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+[data-theme='3'] {
+    /* Variable Overrides */
+    --primary-color: #1dd1a1;
+    --secondary-color: #48dbfb;
+    --text-color: #1e272e;
+    --light-text: #576574;
+    --background: #f0f8ff;
+    --section-background: #eaf5ff;
+    --card-background: #fff;
+    --nav-background: rgba(240, 248, 255, 0.9);
+    --header-gradient: linear-gradient(-45deg, #1dd1a1, #48dbfb, #2e86de, #10ac84);
+    --timeline-axis-color: #c8d6e5;
+    --timeline-dot-color: #1dd1a1;
+    --border-color: #dcdde1;
+    --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme='3'] .header {
+    animation-name: gradientAnimationTheme3;
+    animation-duration: 12s;
+}
+
+[data-theme='3'] .btn.primary,
+[data-theme='3'] .btn.secondary {
+    animation: buttonBreathe 3s ease-in-out infinite;
+}
+
+[data-theme='3'] .btn.primary {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+[data-theme='3'] .btn.primary:hover {
+    background: var(--secondary-color);
+}
+
+[data-theme='3'] .btn.secondary {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+[data-theme='3'] .btn.secondary:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+/* ===== THEME 4: Nature's Whisper ===== */
+@keyframes gradientAnimationTheme4 {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes floatLeaf {
+    0% {
+        transform: translateY(0) rotate(var(--rotation-start));
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) translateX(-20vw) rotate(var(--rotation-end));
+        opacity: 0;
+    }
+}
+
+[data-theme='4'] {
+    /* Variable Overrides */
+    --primary-color: #2E8B57; /* SeaGreen */
+    --secondary-color: #6495ED; /* CornflowerBlue */
+    --text-color: #2F4F4F; /* DarkSlateGray */
+    --light-text: #696969; /* DimGray */
+    --background: #FAFAD2; /* LightGoldenRodYellow */
+    --section-background: #F0E68C; /* Khaki */
+    --card-background: #fff;
+    --nav-background: rgba(250, 250, 210, 0.85); /* LightGoldenRodYellow with alpha */
+    --header-gradient: linear-gradient(-45deg, #87CEEB, #2E8B57, #90EE90, #4682B4); /* SkyBlue, SeaGreen, LightGreen, SteelBlue */
+    --timeline-axis-color: #BDB76B; /* DarkKhaki */
+    --timeline-dot-color: #2E8B57;
+    --border-color: #dcdde1;
+    --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='4'] .header {
+    animation-name: gradientAnimationTheme4;
+    animation-duration: 20s;
+}
+
+/* Leaf Animation Styles */
+.leaves-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.leaf {
+    position: absolute;
+    top: -50px; /* Start above screen */
+    background-color: rgba(46, 139, 87, 0.6); /* SeaGreen with alpha */
+    border-radius: 10% 90% 40% 60% / 60% 40% 90% 10%;
+    opacity: 0;
+    animation-name: floatLeaf;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* Theme-specific overrides */
+[data-theme='4'] .btn.primary {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+[data-theme='4'] .btn.secondary {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+[data-theme='4'] .btn.secondary:hover {
+    background: var(--primary-color);
+    color: #fff;
 }
