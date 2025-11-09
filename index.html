@@ -23,12 +23,12 @@
         </div>
         <div class="nav-links">
           <ul class="nav-list" id="main-navigation">
-            <li class="nav-item"><a href="#home" class="nav-link scroll-link" data-section="home"><i class="fas fa-home"></i> Home</a></li>
-            <li class="nav-item"><a href="#about" class="nav-link scroll-link" data-section="about"><i class="fas fa-user"></i> About</a></li>
-            <li class="nav-item"><a href="#experience" class="nav-link scroll-link" data-section="experience"><i class="fas fa-briefcase"></i> Experience</a></li>
-            <li class="nav-item"><a href="#projects" class="nav-link scroll-link" data-section="projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
-            <li class="nav-item"><a href="#skills" class="nav-link scroll-link" data-section="skills"><i class="fas fa-cogs"></i> Skills</a></li>
-            <li class="nav-item"><a href="#contact" class="nav-link scroll-link" data-section="contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            <li class="nav-item"><a href="#home" class="nav-link scroll-link" data-section="home">Home</a></li>
+            <li class="nav-item"><a href="#about" class="nav-link scroll-link" data-section="about">About</a></li>
+            <li class="nav-item"><a href="#experience" class="nav-link scroll-link" data-section="experience">Experience</a></li>
+            <li class="nav-item"><a href="#projects" class="nav-link scroll-link" data-section="projects">Projects</a></li>
+            <li class="nav-item"><a href="#skills" class="nav-link scroll-link" data-section="skills">Skills</a></li>
+            <li class="nav-item"><a href="#contact" class="nav-link scroll-link" data-section="contact">Contact</a></li>
           </ul>
         </div>
         <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-navigation">
@@ -48,9 +48,9 @@
         <a href="https://github.com/ravi0900" target="_blank" rel="noopener noreferrer" class="btn primary">
           <i class="fab fa-github" aria-hidden="true"></i> GitHub Profile
         </a>
-        <a href="https://drive.google.com/file/d/1g1vtFKKt0TdpbGpBVe77v7nqk2k1ZCBU/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn secondary">
-          <i class="fas fa-download" aria-hidden="true"></i> Download Resume
-        </a>
+        <button class="btn secondary" id="view-resume-btn">
+          <i class="fas fa-eye" aria-hidden="true"></i> View Resume
+        </button>
       </div>
     </div>
     <div class="icons">
@@ -240,7 +240,7 @@
         </div>
         <div class="contact-item">
           <i class="fas fa-map-marker-alt"></i>
-          <p>Rewa, India</p>
+          <p>Greater Noida, India</p>
         </div>
         <div class="contact-item">
           <i class="fab fa-linkedin-in"></i>
@@ -249,6 +249,24 @@
       </div>
     </div>
   </section>
+
+  <!-- Resume Modal -->
+  <div id="resume-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>My Resume</h2>
+        <button class="modal-close" id="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <iframe src="https://drive.google.com/file/d/1g1vtFKKt0TdpbGpBVe77v7nqk2k1ZCBU/preview?embedded=true" frameborder="0"></iframe>
+      </div>
+      <div class="modal-footer">
+        <a href="https://drive.google.com/uc?export=download&id=1g1vtFKKt0TdpbGpBVe77v7nqk2k1ZCBU" class="btn primary" download>
+          <i class="fas fa-download" aria-hidden="true"></i> Download
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer>

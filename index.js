@@ -1,3 +1,4 @@
+let scrollPosition = 0;
 // ===== THEME CONFIGURATION =====
 // Change this value to switch themes.
 // 0 = Original (Bold)
@@ -58,6 +59,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const navHeight = navBar.getBoundingClientRect().height;
   const bodyOverlay = document.querySelector('.body-overlay');
   
+  // Modal elements
+  const resumeModal = document.getElementById('resume-modal');
+  const viewResumeBtn = document.getElementById('view-resume-btn');
+  const modalCloseBtn = document.getElementById('modal-close-btn');
+  
   // Add loaded class for fade-in animations
   const hero = document.querySelector('.hero');
   const ctaButtons = document.querySelector('.cta-buttons');
@@ -70,14 +76,49 @@ document.addEventListener('DOMContentLoaded', function() {
     if (icons) icons.classList.add('loaded');
   }, 300);
 
+  function updateScrollLock() {
+    const isModalOpen = resumeModal && resumeModal.classList.contains('active');
+    const isMenuOpen = navLinks && navLinks.classList.contains('active');
+
+    if (isModalOpen || isMenuOpen) {
+      if (!document.body.classList.contains('scroll-lock')) {
+        scrollPosition = window.pageYOffset;
+        document.body.style.top = `-${scrollPosition}px`;
+        document.body.classList.add('scroll-lock');
+      }
+    } else {
+      if (document.body.classList.contains('scroll-lock')) {
+        document.body.classList.remove('scroll-lock');
+        document.body.style.removeProperty('top');
+        window.scrollTo(0, scrollPosition);
+      }
+    }
+  }
+
   // Toggle mobile menu
   function toggleMenu() {
     const isOpen = !navLinks.classList.contains('active');
     navToggle.classList.toggle('active', isOpen);
     navLinks.classList.toggle('active', isOpen);
     if (bodyOverlay) bodyOverlay.classList.toggle('active', isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+    updateScrollLock();
     navToggle.setAttribute('aria-expanded', isOpen);
+  }
+
+  // Open modal
+  function openModal() {
+    if (resumeModal) {
+      resumeModal.classList.add('active');
+      updateScrollLock();
+    }
+  }
+
+  // Close modal
+  function closeModal() {
+    if (resumeModal) {
+      resumeModal.classList.remove('active');
+      updateScrollLock();
+    }
   }
 
   // Close menu when clicking outside
@@ -115,6 +156,23 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // Modal event listeners
+  if (viewResumeBtn) {
+    viewResumeBtn.addEventListener('click', openModal);
+  }
+
+  if (modalCloseBtn) {
+    modalCloseBtn.addEventListener('click', closeModal);
+  }
+
+  if (resumeModal) {
+    resumeModal.addEventListener('click', function(e) {
+      if (e.target === resumeModal) {
+        closeModal();
+      }
+    });
+  }
+
   // Add smooth scroll to nav links
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener("click", smoothScroll);
@@ -123,12 +181,17 @@ document.addEventListener('DOMContentLoaded', function() {
   // Close menu when clicking outside
   document.addEventListener('click', closeMenuOnOutsideClick);
 
+  // Close modal with escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && resumeModal && resumeModal.classList.contains('active')) {
+      closeModal();
+    }
+  });
+
   // Handle window resize and scroll
   function handleResize() {
     if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
-      navLinks.classList.remove('active');
-      navToggle.classList.remove('active');
-      document.body.style.overflow = '';
+      toggleMenu();
     }
   }
 
