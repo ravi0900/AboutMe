@@ -6,8 +6,8 @@
     --text-color: #333;
     --light-text: #666;
     --background: #fff;
-    --section-background: #f9f9f9;
-    --card-background: #fff;
+    --section-background: rgba(249, 249, 249, 0.6);
+    --card-background: rgba(255, 255, 255, 0.6);
     --nav-background: rgba(255, 255, 255, 0.95);
     --header-gradient: linear-gradient(-45deg, #0052D4, #4364F7, #6FB1FC);
     --timeline-axis-color: #c6ccda;
@@ -38,6 +38,24 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
+}
+
+.body-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.body-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 /* ===== Layout ===== */
@@ -395,6 +413,7 @@ body {
     padding: 1.5rem;
     background: var(--section-background);
     border-radius: 10px;
+    backdrop-filter: blur(10px);
 }
 
 .highlight .number {
@@ -442,6 +461,7 @@ body {
     border-radius: 10px;
     box-shadow: var(--card-shadow);
     margin-bottom: 1.5rem;
+    backdrop-filter: blur(10px);
 }
 
 .timeline-item::before {
@@ -513,6 +533,7 @@ body {
     padding: 2rem;
     box-shadow: var(--card-shadow);
     transition: transform 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
 .project-card:hover {
@@ -570,6 +591,7 @@ body {
     padding: 2rem;
     border-radius: 10px;
     box-shadow: var(--card-shadow);
+    backdrop-filter: blur(10px);
 }
 
 .skill-category h3 {
@@ -603,6 +625,7 @@ body {
     border-radius: 10px;
     box-shadow: var(--card-shadow);
     transition: transform 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
 .cert-card:hover {
@@ -632,6 +655,7 @@ body {
     background: var(--card-background);
     border-radius: 10px;
     box-shadow: var(--card-shadow);
+    backdrop-filter: blur(10px);
 }
 
 .contact-item i {
@@ -766,20 +790,22 @@ footer span {
     .nav-links {
         position: fixed;
         top: 0;
-        right: -100%;
+        right: 0;
+        transform: translateX(100%);
         width: 80%;
         max-width: 300px;
         height: 100vh;
-        background: var(--background);   
-        padding: 80px 2rem 2rem;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-        transition: right 0.3s ease-in-out;
+        background: var(--nav-background);
+        backdrop-filter: blur(15px);
+        padding: 6rem 2rem 2rem;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         z-index: 1000;
         overflow-y: auto;
     }
 
     .nav-links.active {
-        right: 0;
+        transform: translateX(0);
     }
 
     .nav-list {
@@ -793,9 +819,24 @@ footer span {
     }
 
     .nav-link {
-        display: block;
-        padding: 0.75rem 0;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.8rem 0;
         font-size: 1.1rem;
+        border-radius: 5px;
+        transition: var(--transition);
+    }
+
+    .nav-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--primary-color);
+    }
+
+    .nav-link i {
+        font-size: 1.2rem;
+        width: 25px;
+        text-align: center;
     }
 
     .header {
@@ -943,8 +984,8 @@ footer span {
     --text-color: #ECF0F1;
     --light-text: #BDC3C7;
     --background: #2c3e50;
-    --section-background: #34495E;
-    --card-background: #46627f;
+    --section-background: rgba(52, 73, 94, 0.7);
+    --card-background: rgba(70, 98, 127, 0.7);
     --nav-background: rgba(44, 62, 80, 0.85);
     --header-gradient: linear-gradient(-45deg, #8E44AD, #E74C3C, #2980B9);
     --timeline-axis-color: #566573;
@@ -1019,8 +1060,8 @@ footer span {
     --text-color: #1e272e;
     --light-text: #576574;
     --background: #f0f8ff;
-    --section-background: #eaf5ff;
-    --card-background: #fff;
+    --section-background: rgba(234, 245, 255, 0.6);
+    --card-background: rgba(255, 255, 255, 0.6);
     --nav-background: rgba(240, 248, 255, 0.9);
     --header-gradient: linear-gradient(-45deg, #1dd1a1, #48dbfb, #2e86de, #10ac84);
     --timeline-axis-color: #c8d6e5;
@@ -1083,8 +1124,8 @@ footer span {
     --text-color: #2F4F4F; /* DarkSlateGray */
     --light-text: #696969; /* DimGray */
     --background: #FAFAD2; /* LightGoldenRodYellow */
-    --section-background: #F0E68C; /* Khaki */
-    --card-background: #fff;
+    --section-background: rgba(240, 230, 140, 0.6); /* Khaki */
+    --card-background: rgba(255, 255, 255, 0.6);
     --nav-background: rgba(250, 250, 210, 0.85); /* LightGoldenRodYellow with alpha */
     --header-gradient: linear-gradient(-45deg, #87CEEB, #2E8B57, #90EE90, #4682B4); /* SkyBlue, SeaGreen, LightGreen, SteelBlue */
     --timeline-axis-color: #BDB76B; /* DarkKhaki */
@@ -1106,8 +1147,8 @@ footer span {
     --text-color: #2F4F4F; /* DarkSlateGray */
     --light-text: #696969; /* DimGray */
     --background: #FDF5E6; /* Old Lace */
-    --section-background: #FAEBD7; /* Antique White */
-    --card-background: #fff;
+    --section-background: rgba(250, 235, 215, 0.6); /* Antique White */
+    --card-background: rgba(255, 255, 255, 0.6);
     --nav-background: rgba(253, 245, 230, 0.85); /* Old Lace with alpha */
     --header-gradient: linear-gradient(-45deg, #2E8B57, #8FBC8F, #D2B48C, #3CB371);
     --timeline-axis-color: #BDB76B; /* DarkKhaki */
@@ -1143,8 +1184,8 @@ footer span {
     --text-color: #f0f0f0;
     --light-text: #a0a0a0;
     --background: #121212;
-    --section-background: #1a1a1a;
-    --card-background: #242424;
+    --section-background: rgba(26, 26, 26, 0.5);
+    --card-background: rgba(36, 36, 36, 0.5);
     --nav-background: rgba(18, 18, 18, 0.85);
     --header-gradient: linear-gradient(-45deg, #1a1a1a, #2a2a2a, #1a1a1a);
     --timeline-axis-color: #444;
@@ -1206,8 +1247,8 @@ footer span {
     --text-color: #f0f0f0;
     --light-text: #a0a0a0;
     --background: #0d0d0d;
-    --section-background: #1a1a1a;
-    --card-background: #242424;
+    --section-background: rgba(26, 26, 26, 0.5);
+    --card-background: rgba(36, 36, 36, 0.5);
     --nav-background: rgba(13, 13, 13, 0.85);
     --header-gradient: linear-gradient(-45deg, #1a1a1a, #2a2a2a, #1a1a1a);
     --timeline-axis-color: #444;
@@ -1295,8 +1336,8 @@ footer span {
     --text-color: #e0e0e0;
     --light-text: #999;
     --background: #0B1A24; /* Deep Blue/Green */
-    --section-background: #102330;
-    --card-background: #152C3D;
+    --section-background: rgba(16, 35, 48, 0.6);
+    --card-background: rgba(21, 44, 61, 0.6);
     --nav-background: rgba(11, 26, 36, 0.85);
     --header-gradient: linear-gradient(-45deg, #0B1A24, #102330, #0B1A24);
     --timeline-axis-color: #2A4A60;

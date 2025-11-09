@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const hamburger = document.querySelector(".hamburger");
   const navBar = document.querySelector(".nav");
   const navHeight = navBar.getBoundingClientRect().height;
+  const bodyOverlay = document.querySelector('.body-overlay');
   
   // Add loaded class for fade-in animations
   const hero = document.querySelector('.hero');
@@ -74,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const isOpen = !navLinks.classList.contains('active');
     navToggle.classList.toggle('active', isOpen);
     navLinks.classList.toggle('active', isOpen);
+    if (bodyOverlay) bodyOverlay.classList.toggle('active', isOpen);
     document.body.style.overflow = isOpen ? 'hidden' : '';
     navToggle.setAttribute('aria-expanded', isOpen);
   }
