@@ -57,7 +57,7 @@ body {
 
 .header {
     position: relative;
-    min-height: 100vh;
+    min-height: 100svh;
     background: var(--header-gradient);
     background-size: 400% 400%;
     animation: gradientAnimation 15s ease infinite;
@@ -68,20 +68,6 @@ body {
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    padding: 80px 0 200px;
-}
-
-.nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    background: var(--nav-background);
-    backdrop-filter: blur(10px);
-    padding: 1rem 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .navigation {
@@ -281,6 +267,16 @@ body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+.nav.fixed-nav {
+    position: fixed;
+    animation: slide-down 0.3s ease-out;
+}
+
+@keyframes slide-down {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
 .navigation {
     position: relative;
     width: 100%;
@@ -343,10 +339,6 @@ body {
 /* Section Styles */
 .section {
     padding: var(--section-padding);
-}
-
-.section:not(:first-child) {
-    margin-top: -2rem;
 }
 
 .title h1 {
@@ -807,15 +799,11 @@ footer span {
     }
 
     .header {
-        height: 100vh;
         /* min-height: 600px; */
-        min-height: auto;
-        padding: 60px 0 120px;
     }
 
     .hero {
-        padding-bottom: 150px;
-        padding: 1rem;
+        padding: 1rem 1rem 150px;
     }
 
     .hero h1 {
@@ -881,10 +869,6 @@ footer span {
 }
 
 @media (max-width: 480px) {
-    .header {
-        min-height: 500px;
-    }
-
     .hero h1 {
         font-size: 2rem;
     }
