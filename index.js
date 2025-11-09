@@ -10,7 +10,8 @@ let scrollPosition = 0;
 // 5 = RGB Modern
 // 5.1 = RGB Glitch
 // 5.2 = Digital Bloom
-const THEME = 5.2;
+// 5.3 = Digital Bloom RGB
+const THEME = 5.3;
 
 const THEME_COLORS = {
   0: '#0044FF',        // Original Bold
@@ -22,6 +23,7 @@ const THEME_COLORS = {
   5: '#1a1a1a',        // RGB Modern
   5.1: '#0d0d0d',      // RGB Glitch
   5.2: '#0B1A24',      // Digital Bloom
+  5.3: '#0B1A24',      // Digital Bloom RGB
 };
 
 // Initialize AOS (Animate On Scroll)
@@ -46,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
       createFloatingLeaves();
     } else if (THEME === 4.1) {
       createEnhancedFloatingLeaves();
-    } else if (THEME === 5.2) {
+    } else if (THEME === 5.2 || THEME === 5.3) {
       createDigitalBloomEffects();
     }
   }

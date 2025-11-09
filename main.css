@@ -673,7 +673,6 @@ body.scroll-lock {
 
 .contact-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .contact-item i {
@@ -1556,6 +1555,7 @@ footer span {
 [data-theme='5'] .skill-category,
 [data-theme='5'] .cert-card,
 [data-theme='5'] .timeline-item,
+[data-theme='5'] .contact-item,
 [data-theme='5'] .highlight {
     border: 2px solid var(--border-color);
     transition: all 0.3s ease;
@@ -1567,6 +1567,7 @@ footer span {
 [data-theme='5'] .skill-category:hover,
 [data-theme='5'] .cert-card:hover,
 [data-theme='5'] .timeline-item:hover,
+[data-theme='5'] .contact-item:hover,
 [data-theme='5'] .highlight:hover {
     animation: rgb-border 3s linear infinite;
     transform: translateY(-5px);
@@ -1575,6 +1576,7 @@ footer span {
 [data-theme='5'] .project-card::before,
 [data-theme='5'] .skill-category::before,
 [data-theme='5'] .cert-card::before,
+[data-theme='5'] .contact-item::before,
 [data-theme='5'] .highlight::before,
 [data-theme='5'] .timeline-item::after {
     content: '';
@@ -1594,6 +1596,7 @@ footer span {
 [data-theme='5'] .project-card:hover::before,
 [data-theme='5'] .skill-category:hover::before,
 [data-theme='5'] .cert-card:hover::before,
+[data-theme='5'] .contact-item:hover::before,
 [data-theme='5'] .highlight:hover::before,
 [data-theme='5'] .timeline-item:hover::after {
     opacity: 1;
@@ -1631,6 +1634,7 @@ footer span {
 [data-theme='5.1'] .skill-category,
 [data-theme='5.1'] .cert-card,
 [data-theme='5.1'] .timeline-item,
+[data-theme='5.1'] .contact-item,
 [data-theme='5.1'] .highlight {
     border: 2px solid var(--border-color);
     transition: all 0.3s ease;
@@ -1640,6 +1644,7 @@ footer span {
 [data-theme='5.1'] .skill-category:hover,
 [data-theme='5.1'] .cert-card:hover,
 [data-theme='5.1'] .timeline-item:hover,
+[data-theme='5.1'] .contact-item:hover,
 [data-theme='5.1'] .highlight:hover {
     animation: rgb-glow 2s linear infinite;
     transform: translateY(-5px);
@@ -1676,6 +1681,7 @@ footer span {
 [data-theme='5.2'] .skill-category,
 [data-theme='5.2'] .cert-card,
 [data-theme='5.2'] .timeline-item,
+[data-theme='5.2'] .contact-item,
 [data-theme='5.2'] .highlight {
     border: 2px solid var(--border-color);
     transition: all 0.3s ease;
@@ -1687,6 +1693,7 @@ footer span {
 [data-theme='5.2'] .skill-category:hover,
 [data-theme='5.2'] .cert-card:hover,
 [data-theme='5.2'] .timeline-item:hover,
+[data-theme='5.2'] .contact-item:hover,
 [data-theme='5.2'] .highlight:hover {
     transform: translateY(-5px);
     border-color: var(--primary-color);
@@ -1696,6 +1703,7 @@ footer span {
 [data-theme='5.2'] .project-card::before,
 [data-theme='5.2'] .skill-category::before,
 [data-theme='5.2'] .cert-card::before,
+[data-theme='5.2'] .contact-item::before,
 [data-theme='5.2'] .highlight::before,
 [data-theme='5.2'] .timeline-item::after {
     content: '';
@@ -1715,6 +1723,7 @@ footer span {
 [data-theme='5.2'] .project-card:hover::before,
 [data-theme='5.2'] .skill-category:hover::before,
 [data-theme='5.2'] .cert-card:hover::before,
+[data-theme='5.2'] .contact-item:hover::before,
 [data-theme='5.2'] .highlight:hover::before,
 [data-theme='5.2'] .timeline-item:hover::after {
     opacity: 1;
@@ -1722,5 +1731,115 @@ footer span {
 }
 
 [data-theme='5.2'] footer {
+    background: #102330;
+}
+
+/* ===== THEME 5.3: Digital Bloom RGB ===== */
+[data-theme='5.3'] {
+    --primary-color: #39ff14; /* Neon Green */
+    --secondary-color: #00ffff; /* Cyan */
+    --text-color: #e0e0e0;
+    --light-text: #999;
+    --background: #0B1A24; /* Deep Blue/Green */
+    --section-background: rgba(16, 35, 48, 0.4);
+    --card-background: rgba(21, 44, 61, 0.4);
+    --nav-background: rgba(11, 26, 36, 0.85);
+    --header-gradient: linear-gradient(-45deg, #0B1A24, #102330, #0B1A24);
+    --timeline-axis-color: #2A4A60;
+    --timeline-dot-color: var(--primary-color);
+    --header-text-color: #fff;
+    --border-color: #2A4A60;
+    --card-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme='5.3'] .hero h1 {
+    animation: rgb-text-shadow 4s linear infinite;
+}
+
+[data-theme='5.3'] .logo h1,
+[data-theme='5.3'] .logo h1 span {
+    color: var(--text-color);
+}
+
+[data-theme='5.3'] .nav-toggle .hamburger span {
+    background: var(--text-color);
+}
+
+/* Theme-specific overrides for Theme 5.3 */
+[data-theme='5.3'] .btn.primary {
+    background: var(--primary-color);
+    color: var(--background);
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+[data-theme='5.3'] .btn.primary:hover {
+    background: transparent;
+    color: var(--primary-color);
+}
+
+[data-theme='5.3'] .btn.secondary {
+    border: 2px solid var(--header-text-color);
+    color: var(--header-text-color);
+}
+
+[data-theme='5.3'] .btn.secondary:hover {
+    background: var(--header-text-color);
+    color: var(--background);
+}
+
+[data-theme='5.3'] .project-card,
+[data-theme='5.3'] .skill-category,
+[data-theme='5.3'] .cert-card,
+[data-theme='5.3'] .timeline-item,
+[data-theme='5.3'] .contact-item,
+[data-theme='5.3'] .highlight {
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+[data-theme='5.3'] .project-card:hover,
+[data-theme='5.3'] .skill-category:hover,
+[data-theme='5.3'] .cert-card:hover,
+[data-theme='5.3'] .timeline-item:hover,
+[data-theme='5.3'] .contact-item:hover,
+[data-theme='5.3'] .highlight:hover {
+    transform: translateY(-5px);
+    animation: rgb-border 3s linear infinite;
+}
+
+[data-theme='5.3'] .project-card::before,
+[data-theme='5.3'] .skill-category::before,
+[data-theme='5.3'] .cert-card::before,
+[data-theme='5.3'] .contact-item::before,
+[data-theme='5.3'] .highlight::before,
+[data-theme='5.3'] .timeline-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    background: linear-gradient(110deg, rgba(255,0,0,0.15), rgba(0,255,0,0.15), rgba(0,0,255,0.15), rgba(255,0,0,0.15));
+    background-size: 400% 400%;
+    border-radius: 10px;
+}
+
+[data-theme='5.3'] .project-card:hover::before,
+[data-theme='5.3'] .skill-category:hover::before,
+[data-theme='5.3'] .cert-card:hover::before,
+[data-theme='5.3'] .contact-item:hover::before,
+[data-theme='5.3'] .highlight:hover::before,
+[data-theme='5.3'] .timeline-item:hover::after {
+    opacity: 1;
+    animation: rgb-inner-glow 8s linear infinite;
+}
+
+[data-theme='5.3'] footer {
     background: #102330;
 }
