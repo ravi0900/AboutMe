@@ -5,7 +5,11 @@
 // 2 = Cosmic Lilac (Dark)
 // 3 = Oceanic Mint (New)
 // 4 = Nature's Whisper (New)
-const THEME = 4;
+// 4.1 = Nature's Whisper (Enhanced)
+// 5 = RGB Modern
+// 5.1 = RGB Glitch
+// 5.2 = Digital Bloom
+const THEME = 5.2;
 
 const THEME_COLORS = {
   0: '#0044FF',        // Original Bold
@@ -13,6 +17,10 @@ const THEME_COLORS = {
   2: '#2c3e50',        // Cosmic Lilac (Dark)
   3: '#1dd1a1',        // Oceanic Mint
   4: '#2E8B57',        // Nature's Whisper
+  4.1: '#2E8B57',      // Nature's Whisper (Enhanced)
+  5: '#1a1a1a',        // RGB Modern
+  5.1: '#0d0d0d',      // RGB Glitch
+  5.2: '#0B1A24',      // Digital Bloom
 };
 
 // Initialize AOS (Animate On Scroll)
@@ -35,6 +43,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (THEME === 4) {
       createFloatingLeaves();
+    } else if (THEME === 4.1) {
+      createEnhancedFloatingLeaves();
+    } else if (THEME === 5.2) {
+      createDigitalBloomEffects();
     }
   }
 
@@ -160,5 +172,80 @@ function createFloatingLeaves() {
     leaf.style.setProperty('--rotation-end', `${Math.random() * 360 - 180}deg`);
 
     container.appendChild(leaf);
+  }
+}
+
+// Function to create floating leaves for Theme 4.1
+function createEnhancedFloatingLeaves() {
+  const header = document.querySelector('.header');
+  if (!header) return;
+
+  const container = document.createElement('div');
+  container.className = 'leaves-container';
+  header.prepend(container);
+
+  const leafCount = 20; // Increased leaf count for a fuller effect
+  const leafColors = [
+    'rgba(46, 139, 87, 0.7)',   // SeaGreen
+    'rgba(85, 107, 47, 0.7)',   // DarkOliveGreen
+    'rgba(218, 165, 32, 0.7)', // Goldenrod
+    'rgba(139, 69, 19, 0.6)'    // SaddleBrown
+  ];
+
+  for (let i = 0; i < leafCount; i++) {
+    const leaf = document.createElement('div');
+    leaf.className = 'leaf';
+    
+    // Randomize properties for a natural effect
+    leaf.style.left = `${Math.random() * 100}vw`;
+    leaf.style.animationDuration = `${Math.random() * 8 + 7}s`; // 7 to 15 seconds
+    leaf.style.animationDelay = `${Math.random() * 10}s`;
+    
+    const size = `${Math.random() * 15 + 10}px`; // 10px to 25px
+    leaf.style.width = size;
+    leaf.style.height = size;
+    
+    // Set random color
+    leaf.style.backgroundColor = leafColors[Math.floor(Math.random() * leafColors.length)];
+
+    // Custom properties for random rotation and drift in CSS
+    leaf.style.setProperty('--rotation-start', `${Math.random() * 360 - 180}deg`);
+    leaf.style.setProperty('--rotation-end', `${Math.random() * 360 - 180}deg`);
+    leaf.style.setProperty('--horizontal-drift', `${Math.random() * 40 - 20}vw`);
+
+    container.appendChild(leaf);
+  }
+}
+
+// Function to create digital bloom effects for Theme 5.2
+function createDigitalBloomEffects() {
+  const header = document.querySelector('.header');
+  if (!header) return;
+
+  const container = document.createElement('div');
+  container.className = 'particles-container';
+  header.prepend(container);
+
+  const particleCount = 30;
+  const colors = ['#00ffff', '#39ff14', '#f8f8ff'];
+
+  for (let i = 0; i < particleCount; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    
+    const size = Math.random() * 4 + 1; // size between 1px and 5px
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+    
+    particle.style.left = `${Math.random() * 100}%`;
+    
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    particle.style.backgroundColor = color;
+    particle.style.boxShadow = `0 0 ${Math.random() * 8 + 4}px ${color}`;
+    
+    particle.style.animationDuration = `${Math.random() * 20 + 15}s`; // 15 to 35 seconds
+    particle.style.animationDelay = `-${Math.random() * 25}s`; // Start animations at different points
+
+    container.appendChild(particle);
   }
 }
