@@ -7,6 +7,14 @@
 // 4 = Nature's Whisper (New)
 const THEME = 4;
 
+const THEME_COLORS = {
+  0: '#0044FF',        // Original Bold
+  1: '#0052D4',        // Light Blue (Default)
+  2: '#2c3e50',        // Cosmic Lilac (Dark)
+  3: '#1dd1a1',        // Oceanic Mint
+  4: '#2E8B57',        // Nature's Whisper
+};
+
 // Initialize AOS (Animate On Scroll)
 AOS.init({
   duration: 800,
@@ -18,6 +26,13 @@ document.addEventListener('DOMContentLoaded', function() {
   // Apply the selected theme
   if (typeof THEME === 'number') {
     document.documentElement.setAttribute('data-theme', THEME);
+    
+    // Update theme-color meta tag for mobile browsers
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+    if (themeColorMeta && THEME_COLORS[THEME]) {
+      themeColorMeta.setAttribute('content', THEME_COLORS[THEME]);
+    }
+
     if (THEME === 4) {
       createFloatingLeaves();
     }
