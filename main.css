@@ -475,7 +475,7 @@ body.scroll-lock {
     content: '';
     position: absolute;
     top: 20px;
-    left: -31px; /* Position dot on the axis */
+    left: -27.5px; /* Position dot on the axis */
     width: 15px;
     height: 15px;
     border-radius: 50%;
@@ -1011,7 +1011,7 @@ footer span {
     }
 
     .timeline-item::before {
-        left: -26px;
+        left: -22.5px;
     }
 }
 
@@ -1560,6 +1560,13 @@ footer span {
     border: 2px solid var(--border-color);
     transition: all 0.3s ease;
     position: relative;
+}
+
+[data-theme='5'] .project-card,
+[data-theme='5'] .skill-category,
+[data-theme='5'] .cert-card,
+[data-theme='5'] .contact-item,
+[data-theme='5'] .highlight {
     overflow: hidden;
 }
 
@@ -1686,6 +1693,13 @@ footer span {
     border: 2px solid var(--border-color);
     transition: all 0.3s ease;
     position: relative;
+}
+
+[data-theme='5.2'] .project-card,
+[data-theme='5.2'] .skill-category,
+[data-theme='5.2'] .cert-card,
+[data-theme='5.2'] .contact-item,
+[data-theme='5.2'] .highlight {
     overflow: hidden;
 }
 
@@ -1797,6 +1811,13 @@ footer span {
     border: 2px solid var(--border-color);
     transition: all 0.3s ease;
     position: relative;
+}
+
+[data-theme='5.3'] .project-card,
+[data-theme='5.3'] .skill-category,
+[data-theme='5.3'] .cert-card,
+[data-theme='5.3'] .contact-item,
+[data-theme='5.3'] .highlight {
     overflow: hidden;
 }
 
