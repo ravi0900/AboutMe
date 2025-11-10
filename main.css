@@ -451,7 +451,7 @@ body.scroll-lock {
     content: '';
     position: absolute;
     top: 0;
-    left: 20px; /* Position axis on the left */
+    left: 19.5px; /* Position axis on the left */
     transform: translateX(-50%);
     width: 3px;
     height: 100%;
@@ -475,7 +475,7 @@ body.scroll-lock {
     content: '';
     position: absolute;
     top: 20px;
-    left: -27.5px; /* Position dot on the axis */
+    left: -30.5px; /* Position dot on the axis */
     width: 15px;
     height: 15px;
     border-radius: 50%;
@@ -1011,7 +1011,7 @@ footer span {
     }
 
     .timeline-item::before {
-        left: -22.5px;
+        left: -27.5px;
     }
 }
 
