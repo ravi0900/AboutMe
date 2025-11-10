@@ -1011,7 +1011,7 @@ footer span {
     }
 
     .timeline-item::before {
-        left: -27.5px;
+        left: -27px;
     }
 }
 
