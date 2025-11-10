@@ -451,7 +451,7 @@ body.scroll-lock {
     content: '';
     position: absolute;
     top: 0;
-    left: 22px; /* Position axis on the left */
+    left: 21.5px; /* Position axis on the left */
     transform: translateX(-50%);
     width: 3px;
     height: 100%;
