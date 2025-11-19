@@ -80,12 +80,10 @@ document.addEventListener('DOMContentLoaded', function() {
   function updateScrollLock() {
     const isModalOpen = resumeModal && resumeModal.classList.contains('active');
     const isMenuOpen = navLinks && navLinks.classList.contains('active');
+    const shouldLock = isModalOpen || isMenuOpen;
 
-    if (isModalOpen || isMenuOpen) {
-      document.body.classList.add('scroll-lock');
-    } else {
-      document.body.classList.remove('scroll-lock');
-    }
+    document.documentElement.classList.toggle('scroll-lock', shouldLock);
+    document.body.classList.toggle('scroll-lock', shouldLock);
   }
 
   // Toggle mobile menu
