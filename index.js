@@ -1,4 +1,3 @@
-let scrollPosition = 0;
 // ===== THEME CONFIGURATION =====
 // Change this value to switch themes.
 // 0 = Original (Bold)
@@ -83,17 +82,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const isMenuOpen = navLinks && navLinks.classList.contains('active');
 
     if (isModalOpen || isMenuOpen) {
-      if (!document.body.classList.contains('scroll-lock')) {
-        scrollPosition = window.pageYOffset;
-        document.body.style.top = `-${scrollPosition}px`;
-        document.body.classList.add('scroll-lock');
-      }
+      document.body.classList.add('scroll-lock');
     } else {
-      if (document.body.classList.contains('scroll-lock')) {
-        document.body.classList.remove('scroll-lock');
-        document.body.style.removeProperty('top');
-        window.scrollTo(0, scrollPosition);
-      }
+      document.body.classList.remove('scroll-lock');
     }
   }
 

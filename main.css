@@ -41,8 +41,7 @@ body {
 }
 
 body.scroll-lock {
-    position: fixed;
-    width: 100%;
+    overflow: hidden;
 }
 
 .body-overlay {
@@ -850,7 +849,7 @@ footer span {
 }
 
 .nav-toggle.active .hamburger span:nth-child(2) {
-    opacity: 100%;
+    opacity: 0;
 }
 
 .nav-toggle.active .hamburger span:nth-child(3) {
@@ -869,6 +868,7 @@ footer span {
         background: transparent;
         border: none;
         z-index: 1100;
+        position: relative;
     }
 
     .nav-toggle .hamburger {
