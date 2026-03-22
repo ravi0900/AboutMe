@@ -427,26 +427,53 @@ body.scroll-lock {
     box-shadow: var(--card-shadow);
 }
 
+.about-center.container {
+    max-width: 100%;
+    padding: 0 1rem;
+}
+
 .key-highlights {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
     margin-top: 2rem;
+    width: 100%;
 }
 
 .highlight {
     text-align: center;
-    padding: 1.5rem;
+    padding: 1.5rem 0.8rem;
     background: var(--section-background);
     border-radius: 10px;
     backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: visible !important;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .highlight .number {
     font-size: 3rem;
     font-weight: bold;
     color: var(--primary-color);
+    line-height: 1.1;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Theme-specific overrides for highlight cards */
+[data-theme='5'] .highlight,
+[data-theme='5.1'] .highlight,
+[data-theme='5.2'] .highlight,
+[data-theme='5.3'] .highlight {
+    overflow: visible !important;
+}
+
+.highlight .label {
+    font-size: 0.95rem;
+    line-height: 1.3;
+    color: var(--text-color);
+    display: block;
 }
 
 /* Experience Section */
@@ -1045,7 +1072,29 @@ footer span {
     }
 
     .key-highlights {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+        width: 100%;
+    }
+
+    .highlight {
+        padding: 1rem 0.5rem;
+        text-align: center;
+        overflow: visible !important;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .highlight .number {
+        font-size: 2rem;
+        display: block;
+        margin-bottom: 0.3rem;
+    }
+
+    .highlight .label {
+        font-size: 0.8rem;
+        display: block;
     }
 
     .about-center {
