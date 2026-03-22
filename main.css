@@ -63,6 +63,65 @@ body.scroll-lock {
     pointer-events: auto;
 }
 
+/* ===== Cursor Dots Effect ===== */
+.cursor-dot {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.2s ease-out;
+    opacity: 0.8;
+}
+
+.cursor-dot-1 { 
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    transform: scale(1.0);
+}
+.cursor-dot-2 { 
+    background: linear-gradient(45deg, #f093fb, #f5576c);
+    transform: scale(0.8);
+    opacity: 0.7;
+}
+.cursor-dot-3 { 
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    transform: scale(0.6);
+    opacity: 0.6;
+}
+.cursor-dot-4 { 
+    background: linear-gradient(45deg, #43e97b, #38f9d7);
+    transform: scale(0.4);
+    opacity: 0.5;
+}
+.cursor-dot-5 { 
+    background: linear-gradient(45deg, #fa709a, #fee140);
+    transform: scale(0.2);
+    opacity: 0.3;
+}
+.cursor-dot-6 { 
+    background: var(--primary-color);
+    transform: scale(0.15);
+    opacity: 0.2;
+}
+.cursor-dot-7 { 
+    background: var(--primary-color);
+    transform: scale(0.1);
+    opacity: 0.1;
+}
+.cursor-dot-8 { 
+    background: var(--primary-color);
+    transform: scale(0.08);
+    opacity: 0.08;
+}
+
+/* Hide on mobile */
+@media (max-width: 768px) {
+    .cursor-dot {
+        display: none;
+    }
+}
+
 /* ===== Layout ===== */
 .container {
     width: 100%;

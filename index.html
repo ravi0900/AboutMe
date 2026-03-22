@@ -11,8 +11,20 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.css" />
   <link rel="stylesheet" href="main.css" />
   <title>Raviraj Kushwaha</title>
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+  <script src="script.js"></script>
 </head>
 <body>
+  <!-- Cursor Dots -->
+  <div class="cursor-dot cursor-dot-1"></div>
+  <div class="cursor-dot cursor-dot-2"></div>
+  <div class="cursor-dot cursor-dot-3"></div>
+  <div class="cursor-dot cursor-dot-4"></div>
+  <div class="cursor-dot cursor-dot-5"></div>
+  
   <div class="body-overlay"></div>
   <!-- Header -->
   <header id="home" class="header">
@@ -281,5 +293,63 @@ across web, API, and mobile platforms. I love exploring, discovering things and 
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="index.js"></script>
+  
+  <!-- Cursor Dots Script -->
+  <script>
+    // Cursor dots effect
+    const cursorDots = document.querySelectorAll('.cursor-dot');
+    let mouseX = 0, mouseY = 0;
+    let dots = [];
+    
+    // Initialize dots positions
+    cursorDots.forEach((dot, index) => {
+        dots.push({
+            x: 0,
+            y: 0,
+            element: dot
+        });
+    });
+    
+    // Track mouse movement
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+    
+    // Animate dots
+    function animateDots() {
+        dots.forEach((dot, index) => {
+            const targetX = index === 0 ? mouseX : dots[index - 1].x;
+            const targetY = index === 0 ? mouseY : dots[index - 1].y;
+            
+            // Smooth following effect
+            dot.x += (targetX - dot.x) * (0.1 + index * 0.02);
+            dot.y += (targetY - dot.y) * (0.1 + index * 0.02);
+            
+            // Update position
+            dot.element.style.left = dot.x + 'px';
+            dot.element.style.top = dot.y + 'px';
+        });
+        
+        requestAnimationFrame(animateDots);
+    }
+    
+    // Start animation
+    animateDots();
+    
+    // Hide dots when mouse leaves window
+    document.addEventListener('mouseleave', () => {
+        cursorDots.forEach(dot => {
+            dot.style.opacity = '0';
+        });
+    });
+    
+    // Show dots when mouse enters window
+    document.addEventListener('mouseenter', () => {
+        cursorDots.forEach(dot => {
+            dot.style.opacity = '0.7';
+        });
+    });
+  </script>
 </body>
 </html>
